@@ -18,14 +18,16 @@
     "lint"
   ],
   "dependencies": {
-    "express": "~4.17.1",
-    "helmet": "^4.6.0",
-    "@bech/logger": "~6.0.0",
-    "@bech/express-http-context": "~1.2.5",
-    "@bech/trace": "~1.1.1",
     "@bech/config-parser": "~1.0.0",
+    "@bech/express-http-context": "~1.2.5",
+    "@bech/logger": "~6.0.0",
+    "@bech/trace": "~1.1.1",
+    "cors": "^2.8.5",
+    "express": "~4.17.1",
     "express-async-errors": "~3.1.1",
-    "jsonschema": "~1.4.0"
+    "helmet": "^4.6.0",
+    "jsonschema": "~1.4.0",
+    "mongoose": "^6.1.8"
   },
   "devDependencies": {
     "ava": "^3.15.0",

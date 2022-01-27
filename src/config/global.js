@@ -9,21 +9,7 @@ const config = parseConfig({
   },
   headers: {
     doc: "listado de cabeceras obligatorias para todas las operaciones",
-    default: [
-      "codigosesion",
-      "xtrackid",
-      "authorization",
-      "canal",
-      "nombreaplicacion",
-      "funcionalidad",
-      "etapa",
-      "operacion",
-      "codigoaplicacion",
-      "url",
-      "user-agent",
-      "rutcliente",
-      "dvcliente",
-    ],
+    default: [],
   },
   env: {
     doc: "variable de entorno de la aplicación",
@@ -38,6 +24,25 @@ const config = parseConfig({
   checkCertificate: {
     doc: "flag para la validación de identidad de certificados TLS, desabilitar para certificados autofirmados",
     env: "CHECK_CERTIFICATE",
+    required: true,
+  },
+  api: {
+    url: {
+      doc: "API URL",
+      env: "API_URL",
+    },
+    publickey: {
+      doc: "API KEY",
+      env: "PUBLICKEY",
+    },
+    privatekey: {
+      doc: "API KEY",
+      env: "PRIVATEKEY",
+    },
+  },
+  db: {
+    doc: "db",
+    env: "DB",
     required: true,
   },
 });

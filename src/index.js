@@ -7,6 +7,8 @@ const { routes } = require("./routes/routes");
 const bodyParser = require("body-parser");
 const logger = require("@bech/logger").getStaticLogger();
 const config = require("./config/global");
+const { dbConnection } = require("./config/database");
+const cors = require("cors");
 
 const app = express();
 
@@ -16,13 +18,13 @@ async function serverStart() {
 
     // Seguridad; ver https://github.com/helmetjs/helmet
     app.use(helmet());
-
+    app.use(cors());
     // Incorporar rutas
     routes(app);
 
     await connectDB();
 
-    let port = config.port;
+    const { port } = config;
     app.listen(port, () => {
       logger.info(
         `Servidor ejecutandose en el puerto: ${port}, con ruta base ${config.globalPathPrefix}`
@@ -34,7 +36,9 @@ async function serverStart() {
   }
 }
 
-async function connectDB() {}
+async function connectDB() {
+  dbConnection();
+}
 
 async function disconnectDB() {}
 

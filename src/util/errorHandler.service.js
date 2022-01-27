@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 "use strict";
 const getResponseFormat = require("./response.util");
 const ValidationError = require("../model/ValidationError");
@@ -12,7 +13,7 @@ const ValidationError = require("../model/ValidationError");
 async function errorHandlerService(err, req, res, next) {
   // Si es un error generado por schema validator:
   if (err.name === "ValidationResultError") {
-    const errors = err.cause?.errors || err.message || [];
+    const errors = err.cause.errors || err.message || [];
     const errorMsg = [];
     if (errors.lenght) {
       errors.forEach((value) => {
@@ -21,6 +22,7 @@ async function errorHandlerService(err, req, res, next) {
     } else {
       errorMsg.push(errors);
     }
+
     return res
       .status(400)
       .send({ error: "Error en parámetros de entrada", messages: errorMsg });
