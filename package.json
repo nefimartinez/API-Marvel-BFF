@@ -1,0 +1,76 @@
+{
+  "name": "Api-Marvel-BFF",
+  "version": "1.0.0",
+  "description": "Api BFF Marvel",
+  "artifactType": "BFF",
+  "generator-bech": "5.1.0",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "nyc ava test/unit/components/*/*.spec.js",
+    "start": "node src/index.js",
+    "local": "(. ./scripts/variables_entorno.sh && node src/index.js | pino-pretty -t)",
+    "debug": "(. ./scripts/variables_entorno.sh && nodemon --inspect src/index.js | pino-pretty -t)",
+    "lint": "eslint ."
+  },
+  "author": "xxxxxx <xxxxxx>",
+  "license": "UNLICENSED",
+  "pre-commit": [
+    "lint"
+  ],
+  "dependencies": {
+    "express": "~4.17.1",
+    "helmet": "^4.6.0",
+    "@bech/logger": "~6.0.0",
+    "@bech/express-http-context": "~1.2.5",
+    "@bech/trace": "~1.1.1",
+    "@bech/config-parser": "~1.0.0",
+    "express-async-errors": "~3.1.1",
+    "jsonschema": "~1.4.0"
+  },
+  "devDependencies": {
+    "ava": "^3.15.0",
+    "nyc": "^15.0.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-xo": "^0.38.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "prettier": "^2.3.2",
+    "proxyquire": "^2.1.3",
+    "mock-express-response": "^0.3.0",
+    "pre-commit": "^1.2.2",
+    "nodemon": "^2.0.7",
+    "pino-pretty": "^6.0.0"
+  },
+  "nyc": {
+    "check-coverage": true,
+    "lines": 90,
+    "statements": 90,
+    "branches": 90,
+    "reporter": [
+      "lcov",
+      "text"
+    ],
+    "exclude": [
+      "test/unit/*",
+      "src/config/*",
+      "src/util/*",
+      "src/model/*"
+    ],
+    "report-dir": "./coverage"
+  },
+  "eslintConfig": {
+    "extends": [
+      "xo",
+      "prettier"
+    ],
+    "env": {
+      "node": true
+    },
+    "rules": {
+      "prettier/prettier": "error"
+    },
+    "plugins": [
+      "prettier"
+    ]
+  }
+}

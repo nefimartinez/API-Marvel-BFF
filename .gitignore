@@ -1,0 +1,7 @@
+node_modules
+public
+settings.json
+.npmrc
+coverage
+.idea
+.nyc_output
