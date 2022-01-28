@@ -6,6 +6,7 @@ const healthcheckRoute = require("../components/healthcheck/healthcheck.route");
 const trace = require("@bech/trace");
 const httpContext = require("@bech/express-http-context");
 const errorHandler = require("../util/errorHandler.service");
+const getHeroesRoute = require("../components/getHeroes/getHeroes.route");
 
 function routes(app) {
   // Middleware de logging de requests
@@ -27,6 +28,8 @@ function routes(app) {
   // Rutas para cada operación
 
   healthcheckRoute(app, globalPathPrefix);
+  getHeroesRoute(app, globalPathPrefix);
+
   // Middleware para manejo de errores
   app.use(errorHandler);
 }

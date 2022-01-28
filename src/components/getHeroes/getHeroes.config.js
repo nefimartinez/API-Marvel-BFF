@@ -5,7 +5,7 @@ module.exports = {
   methods: {
     GET: {
       description: "Obtencion de los heroes desde la Api Marvel",
-      monitoringCode: "",
+      monitoringCode: "spf.fpd",
       messages: {
         "0000": {
           message: "respuesta correcta",
