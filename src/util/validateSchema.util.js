@@ -1,3 +1,4 @@
+/* eslint-disable prefer-destructuring */
 "use strict";
 const validate = require("jsonschema").validate;
 const ValidationError = require("../model/ValidationError");

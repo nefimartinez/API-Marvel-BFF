@@ -1,11 +1,11 @@
 "use strict";
 
 const TechnicalError = require("../../model/TechnicalError");
-const getHeroesService = require("./getHeroes.service");
+const getHeroeService = require("./getHeroe.Service");
 const crypto = require("crypto");
 const { api } = require("../../config/global");
 
-async function getHeroesModule(req) {
+async function getHeroeModule(req) {
   try {
     // TimeStamp
     const ts = new Date().toString();
@@ -15,7 +15,7 @@ async function getHeroesModule(req) {
     const hash = crypto.createHash("md5").update(preHash).digest("hex");
     hash.toString();
 
-    const serviceResponse = await getHeroesService(req, hash, ts);
+    const serviceResponse = await getHeroeService(req, hash, ts);
 
     return serviceResponse;
   } catch (error) {
@@ -24,4 +24,4 @@ async function getHeroesModule(req) {
   }
 }
 
-module.exports = getHeroesModule;
+module.exports = getHeroeModule;

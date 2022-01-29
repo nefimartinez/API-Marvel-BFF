@@ -21,11 +21,6 @@ const config = parseConfig({
     env: "PORT",
     required: true,
   },
-  checkCertificate: {
-    doc: "flag para la validación de identidad de certificados TLS, desabilitar para certificados autofirmados",
-    env: "CHECK_CERTIFICATE",
-    required: true,
-  },
   api: {
     url: {
       doc: "API URL",

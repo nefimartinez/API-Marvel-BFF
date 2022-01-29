@@ -1,10 +1,10 @@
 "use strict";
 module.exports = {
-  operation: "getHeroes",
-  path: "getHeroes",
+  operation: "getHeroe",
+  path: "getHeroe",
   methods: {
     GET: {
-      description: "Obtencion de los heroes desde la Api Marvel",
+      description: "Obtencion de un heroe de marvel",
       monitoringCode: "",
       messages: {
         "0000": {

@@ -1,9 +1,10 @@
 "use strict";
-
+const schema = require("./getHeroes.validationSchema");
+const validateSchema = require("../../util/validateSchema.util");
 const getHeroes = require("./getHeroes.controller");
 
 function route(app, globalPathPrefix) {
-  app.get(`${globalPathPrefix}/getHeroes`, getHeroes);
+  app.get(`${globalPathPrefix}/getHeroes`, validateSchema(schema), getHeroes);
 }
 
 module.exports = route;
