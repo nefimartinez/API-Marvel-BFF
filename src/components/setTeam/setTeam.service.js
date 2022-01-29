@@ -4,9 +4,12 @@
 const Heroe = require("../../model/mongodb");
 
 async function setTeamService(req) {
+  console.log("servicio");
   try {
     const HEROETEAM = new Heroe(req.body);
     const { id, team } = req.body;
+    console.log(id);
+    console.log(team);
     const HEROETEAMDB = await Heroe.findOne({ id });
     let heroe;
 
@@ -23,6 +26,7 @@ async function setTeamService(req) {
 
     return heroe;
   } catch (error) {
+    console.log("error en servicio");
     throw error;
   }
 }

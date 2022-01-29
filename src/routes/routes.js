@@ -8,6 +8,7 @@ const httpContext = require("@bech/express-http-context");
 const errorHandler = require("../util/errorHandler.service");
 const getHeroesRoute = require("../components/getHeroes/getHeroes.route");
 const getHeroeRoute = require("../components/getHeroe/getHeroe.route");
+const setTeamRoute = require("../components/setTeam/setTeam.route");
 
 function routes(app) {
   // Middleware de logging de requests
@@ -31,6 +32,7 @@ function routes(app) {
   healthcheckRoute(app, globalPathPrefix);
   getHeroesRoute(app, globalPathPrefix);
   getHeroeRoute(app, globalPathPrefix);
+  setTeamRoute(app, globalPathPrefix);
 
   // Middleware para manejo de errores
   app.use(errorHandler);

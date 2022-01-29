@@ -4,6 +4,7 @@
 const setTeamModule = require("./setTeam.module");
 
 async function setTeamController(req, res) {
+  console.log("controlador");
   try {
     const response = await setTeamModule(req);
     return res.status(200).send(response);
