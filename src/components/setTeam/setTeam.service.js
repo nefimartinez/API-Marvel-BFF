@@ -1,24 +1,20 @@
-/* eslint-disable no-useless-catch */
+/* eslint-disable no-negated-condition */
 "use strict";
 
-const Heroe = require("../../model/mongodb");
+const HeroeModel = require("../../model/mongodb");
 
 async function setTeamService(req) {
-  console.log("servicio");
   try {
-    const HEROETEAM = new Heroe(req.body);
+    const heroeTeam = new HeroeModel(req.body);
     const { id, team } = req.body;
-    console.log(id);
-    console.log(team);
-    const HEROETEAMDB = await Heroe.findOne({ id });
+    const heroeTeamdb = await HeroeModel.findOne({ id });
     let heroe;
 
-    // eslint-disable-next-line no-negated-condition
-    if (!HEROETEAMDB) {
-      heroe = await HEROETEAM.save();
+    if (!heroeTeamdb) {
+      heroe = await heroeTeam.save();
     } else {
-      heroe = await Heroe.findByIdAndUpdate(
-        HEROETEAMDB._id,
+      heroe = await HeroeModel.findByIdAndUpdate(
+        heroeTeamdb._id,
         { team },
         { new: true }
       );

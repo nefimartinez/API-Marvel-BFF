@@ -1,11 +1,11 @@
 "use strict";
 
-const setTeamService = require("./setTeam.service");
+const updateTeamService = require("./updateTeam.service");
 const TechnicalError = require("../../model/TechnicalError");
 
-async function setTeamModule(req) {
+async function updateTeamModule(req) {
   try {
-    const serviceResponse = await setTeamService(req);
+    const serviceResponse = await updateTeamService(req);
     return serviceResponse;
   } catch (error) {
     const technicalError = new TechnicalError(error);
@@ -13,4 +13,4 @@ async function setTeamModule(req) {
   }
 }
 
-module.exports = setTeamModule;
+module.exports = updateTeamModule;

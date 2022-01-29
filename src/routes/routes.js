@@ -9,6 +9,7 @@ const errorHandler = require("../util/errorHandler.service");
 const getHeroesRoute = require("../components/getHeroes/getHeroes.route");
 const getHeroeRoute = require("../components/getHeroe/getHeroe.route");
 const setTeamRoute = require("../components/setTeam/setTeam.route");
+const updateTeamroute = require("../components/updateTeam/updateTeam.route");
 
 function routes(app) {
   // Middleware de logging de requests
@@ -33,6 +34,7 @@ function routes(app) {
   getHeroesRoute(app, globalPathPrefix);
   getHeroeRoute(app, globalPathPrefix);
   setTeamRoute(app, globalPathPrefix);
+  updateTeamroute(app, globalPathPrefix);
 
   // Middleware para manejo de errores
   app.use(errorHandler);

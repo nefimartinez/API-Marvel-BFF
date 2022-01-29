@@ -2,7 +2,7 @@
 /* eslint-disable new-cap */
 const { schema, model, Schema } = require("mongoose");
 
-const teamScheama = Schema({
+const teamSchema = Schema({
   id: {
     type: String,
     require: true,
@@ -14,4 +14,4 @@ const teamScheama = Schema({
   },
 });
 
-module.exports = model("Heroe", teamScheama);
+module.exports = model("Heroe", teamSchema);

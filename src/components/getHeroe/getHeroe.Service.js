@@ -2,6 +2,7 @@
 
 const axios = require("axios");
 const { api } = require("../../config/global");
+const heroeModel = require("../../model/mongodb");
 
 async function getHeroeService(req, hash, ts) {
   try {
@@ -10,6 +11,14 @@ async function getHeroeService(req, hash, ts) {
     if (data.status === "Ok") {
       console.log("respuesta del servicio, satisfactoria");
     }
+
+    // Buscar al heroe dentro de la dbmongo
+    const heroe = await heroeModel.find({
+      id: data.data.results[0].id,
+    });
+
+    // Incluye el campo team y su preferencia dentro de la respuesta del servicio
+    data.data.results[0].team = heroe[0].team;
 
     return data;
   } catch (error) {
