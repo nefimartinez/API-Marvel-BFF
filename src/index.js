@@ -5,7 +5,6 @@ require("express-async-errors");
 const helmet = require("helmet");
 const { routes } = require("./routes/routes");
 const bodyParser = require("body-parser");
-const logger = require("@bech/logger").getStaticLogger();
 const config = require("./config/global");
 const { dbConnection } = require("./config/database");
 const cors = require("cors");
@@ -26,12 +25,12 @@ async function serverStart() {
 
     const { port } = config;
     app.listen(port, () => {
-      logger.info(
+      console.info(
         `Servidor ejecutandose en el puerto: ${port}, con ruta base ${config.globalPathPrefix}`
       );
     });
   } catch (error) {
-    logger.error(error);
+    console.error(error);
     await cleanup();
   }
 }
@@ -44,11 +43,11 @@ async function disconnectDB() {}
 
 async function cleanup() {
   try {
-    logger.info("Desconectando...");
+    console.info("Desconectando...");
     await disconnectDB();
     process.exit(0);
   } catch (error) {
-    logger.error(error);
+    console.error(error);
     process.exit(1);
   }
 }

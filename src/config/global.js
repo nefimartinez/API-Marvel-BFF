@@ -1,6 +1,6 @@
 "use strict";
 
-const parseConfig = require("@bech/config-parser");
+const parseConfig = require("../util/parseConfig.util");
 
 const config = parseConfig({
   globalPathPrefix: {

@@ -18,10 +18,6 @@
     "lint"
   ],
   "dependencies": {
-    "@bech/config-parser": "~1.0.0",
-    "@bech/express-http-context": "~1.2.5",
-    "@bech/logger": "~6.0.0",
-    "@bech/trace": "~1.1.1",
     "axios": "^0.25.0",
     "cors": "^2.8.5",
     "express": "~4.17.1",
