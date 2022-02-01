@@ -4,7 +4,7 @@ const validationSchema = {
   properties: {
     offset: {
       description: "paramtro para paginacion",
-      type: "string",
+      type: "number",
     },
     nameStartsWith: {
       description: "paramtro para busqueda de heroes por nombre",

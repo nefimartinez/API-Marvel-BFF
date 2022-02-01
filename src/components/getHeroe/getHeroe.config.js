@@ -3,7 +3,7 @@ module.exports = {
   operation: "getHeroe",
   path: "getHeroe",
   methods: {
-    GET: {
+    POST: {
       description: "Obtencion de un heroe de marvel",
       monitoringCode: "",
       messages: {

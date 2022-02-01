@@ -3,7 +3,7 @@ module.exports = {
   operation: "getHeroes",
   path: "getHeroes",
   methods: {
-    GET: {
+    POST: {
       description: "Obtencion de los heroes desde la Api Marvel",
       monitoringCode: "",
       messages: {

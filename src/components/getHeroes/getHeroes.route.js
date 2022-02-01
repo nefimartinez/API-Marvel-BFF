@@ -4,7 +4,7 @@ const validateSchema = require("../../util/validateSchema.util");
 const getHeroes = require("./getHeroes.controller");
 
 function route(app, globalPathPrefix) {
-  app.get(`${globalPathPrefix}/getHeroes`, validateSchema(schema), getHeroes);
+  app.post(`${globalPathPrefix}/getHeroes`, validateSchema(schema), getHeroes);
 }
 
 module.exports = route;
