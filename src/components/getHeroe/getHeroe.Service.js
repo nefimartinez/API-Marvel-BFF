@@ -17,8 +17,8 @@ async function getHeroeService(req, hash, ts) {
       id: data.data.results[0].id,
     });
 
-    // Incluye el campo team y su preferencia dentro de la respuesta del servicio
-    data.data.results[0].team = heroe[0].team;
+    // Incluye el campo teamcolor y su preferencia dentro de la respuesta del servicio
+    data.data.results[0].team = heroe[0].team ? heroe[0].team : "";
 
     return data;
   } catch (error) {

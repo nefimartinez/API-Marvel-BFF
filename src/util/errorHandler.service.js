@@ -28,12 +28,6 @@ async function errorHandlerService(err, req, res, next) {
       .send({ error: "Error en parámetros de entrada", messages: errorMsg });
   }
 
-  const logger = require("@bech/logger").getLogger({
-    name: "errorHandlerService",
-    xtrackid: req.headers.xtrackid,
-    codigosesion: req.headers.codigosesion,
-  });
-
   if (!err.statusCode) err.statusCode = 500;
 
   const result = getResponseFormat(err.message, err.cause || {});

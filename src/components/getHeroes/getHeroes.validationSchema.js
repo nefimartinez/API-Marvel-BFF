@@ -7,11 +7,11 @@ const validationSchema = {
       type: "number",
     },
     nameStartsWith: {
-      description: "paramtro para busqueda de heroes por nombre",
+      description: "parametro para busqueda de heroes por nombre",
       type: "string",
     },
   },
-  required: ["offset", "nameStartsWith"],
+  required: ["offset"],
 };
 
 module.exports = validationSchema;

@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-const-assign */
 "use strict";
 
 const axios = require("axios");
@@ -17,6 +19,8 @@ async function getHeroesService(req, hash, ts) {
       console.log("respuesta del servicio, satisfactoria");
     }
 
+    data.data.results.map((result) => result.team === "");
+    console.log(JSON.stringify(data.data.results));
     return data;
   } catch (error) {
     console.log("error en servicio");
