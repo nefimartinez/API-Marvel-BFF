@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-const-assign */
 "use strict";
 
 const axios = require("axios");
