@@ -1,0 +1,373 @@
+{
+	"info": {
+		"_postman_id": "1028031b-20ef-4fa2-bfab-2eaedd1d27f7",
+		"name": "Proyecto_Marvel",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Api_Marvel",
+			"item": [
+				{
+					"name": "getHeroes",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"",
+									"// timeStamp",
+									"let ts = new Date().toString();",
+									"",
+									"// Pre-Hash",
+									"const preHash = ts + environment.privateKey + environment.apiKeyPublic;",
+									"",
+									"// Use the CryptoJS",
+									"const hash = CryptoJS.MD5(preHash); ",
+									"pm.environment.set('timeStamp', ts)",
+									"pm.environment.set('hash', hash.toString());",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://gateway.marvel.com:443/v1/public/characters?ts={{timeStamp}}&apikey={{apiKeyPublic}}&hash={{hash}}",
+							"protocol": "https",
+							"host": [
+								"gateway",
+								"marvel",
+								"com"
+							],
+							"port": "443",
+							"path": [
+								"v1",
+								"public",
+								"characters"
+							],
+							"query": [
+								{
+									"key": "ts",
+									"value": "{{timeStamp}}"
+								},
+								{
+									"key": "apikey",
+									"value": "{{apiKeyPublic}}"
+								},
+								{
+									"key": "hash",
+									"value": "{{hash}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getHeroesID",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"",
+									"// timeStamp",
+									"let ts = new Date().toString();",
+									"",
+									"// Pre-Hash",
+									"const preHash = ts + environment.privateKey + environment.apiKeyPublic;",
+									"",
+									"// Use the CryptoJS",
+									"const hash = CryptoJS.MD5(preHash); ",
+									"pm.environment.set('timeStamp', ts)",
+									"pm.environment.set('hash', hash.toString());"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://gateway.marvel.com:443/v1/public/characters?ts={{timeStamp}}&apikey={{apiKeyPublic}}&hash={{hash}}&id={{id}}",
+							"protocol": "https",
+							"host": [
+								"gateway",
+								"marvel",
+								"com"
+							],
+							"port": "443",
+							"path": [
+								"v1",
+								"public",
+								"characters"
+							],
+							"query": [
+								{
+									"key": "ts",
+									"value": "{{timeStamp}}"
+								},
+								{
+									"key": "apikey",
+									"value": "{{apiKeyPublic}}"
+								},
+								{
+									"key": "hash",
+									"value": "{{hash}}"
+								},
+								{
+									"key": "id",
+									"value": "{{id}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getHeroesWithOffset",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"",
+									"// timeStamp",
+									"let ts = new Date().toString();",
+									"",
+									"// Pre-Hash",
+									"const preHash = ts + environment.privateKey + environment.apiKeyPublic;",
+									"",
+									"// Use the CryptoJS",
+									"const hash = CryptoJS.MD5(preHash); ",
+									"pm.environment.set('timeStamp', ts)",
+									"pm.environment.set('hash', hash.toString());"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://gateway.marvel.com:443/v1/public/characters?ts={{timeStamp}}&apikey={{apiKeyPublic}}&hash={{hash}}&offset={{offset}}",
+							"protocol": "https",
+							"host": [
+								"gateway",
+								"marvel",
+								"com"
+							],
+							"port": "443",
+							"path": [
+								"v1",
+								"public",
+								"characters"
+							],
+							"query": [
+								{
+									"key": "ts",
+									"value": "{{timeStamp}}"
+								},
+								{
+									"key": "apikey",
+									"value": "{{apiKeyPublic}}"
+								},
+								{
+									"key": "hash",
+									"value": "{{hash}}"
+								},
+								{
+									"key": "offset",
+									"value": "{{offset}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "BFF-Marvel",
+			"item": [
+				{
+					"name": "getHeroesBFF",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"offset\" : 0,\n    \"nameStartsWith\" : \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/bff/v1/Api-Marvel-BFF/getHeroes",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"bff",
+								"v1",
+								"Api-Marvel-BFF",
+								"getHeroes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getHeroeIdBFF",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\" : \"1010699\"   \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/bff/v1/Api-Marvel-BFF/getHeroe",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"bff",
+								"v1",
+								"Api-Marvel-BFF",
+								"getHeroe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "setTeamHeroeBFF",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\" : \"1010699\",\n    \"team\": \"verde\"  \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/bff/v1/Api-Marvel-BFF/setTeam",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"bff",
+								"v1",
+								"Api-Marvel-BFF",
+								"setTeam"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateTeamHeroeBFF",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\" : \"1011334\",\n    \"team\": \"rojo\"  \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/bff/v1/Api-Marvel-BFF/updateTeam",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"bff",
+								"v1",
+								"Api-Marvel-BFF",
+								"updateTeam"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
