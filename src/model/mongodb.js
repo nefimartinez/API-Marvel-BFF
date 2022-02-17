@@ -4,7 +4,7 @@ const { schema, model, Schema } = require("mongoose");
 
 const teamSchema = Schema({
   id: {
-    type: String,
+    type: Number,
     require: true,
     unique: true,
   },
