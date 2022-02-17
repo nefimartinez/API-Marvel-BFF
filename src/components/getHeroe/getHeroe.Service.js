@@ -12,13 +12,26 @@ async function getHeroeService(req, hash, ts) {
       console.log("respuesta del servicio, satisfactoria");
     }
 
+    // Elimina registros no importantes de la respuesta Json
+    data.data.results = data.data.results.map((heroes) => {
+      delete heroes.resourceURI;
+      delete heroes.comics;
+      delete heroes.series;
+      delete heroes.stories;
+      delete heroes.events;
+      delete heroes.urls;
+      return heroes;
+    });
+
     // Buscar al heroe dentro de la dbmongo
     const heroe = await heroeModel.find({
       id: data.data.results[0].id,
     });
 
     // Incluye el campo teamcolor y su preferencia dentro de la respuesta del servicio
-    data.data.results[0].team = heroe[0].team ? heroe[0].team : "";
+    if (heroe) {
+      data.data.results.team = heroe.team ? heroe.team : "blanco";
+    }
 
     return data;
   } catch (error) {
