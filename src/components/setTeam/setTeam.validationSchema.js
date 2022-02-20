@@ -5,7 +5,7 @@ const validationSchema = {
   properties: {
     id: {
       description: "id del heroe",
-      type: "string",
+      type: "number",
     },
     team: {
       description: "team del heroe",

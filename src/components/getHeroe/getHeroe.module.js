@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 "use strict";
 
 const TechnicalError = require("../../model/TechnicalError");

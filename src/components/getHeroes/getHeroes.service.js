@@ -13,13 +13,10 @@ async function getHeroesService(req, hash, ts) {
         : ""
     }`;
     const { data } = await axios.get(url);
-    if (data.status === "Ok") {
-      console.log("respuesta del servicio, satisfactoria");
-    }
 
     return data;
   } catch (error) {
-    console.log("error en servicio");
+    console.log("error en servicio get Heroes");
     throw error;
   }
 }

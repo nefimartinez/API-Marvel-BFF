@@ -4,7 +4,7 @@ const validationSchema = {
   properties: {
     id: {
       description: "id del heroe a buscar",
-      type: "string",
+      type: "number",
     },
   },
   required: ["id"],

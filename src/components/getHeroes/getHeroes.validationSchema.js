@@ -3,7 +3,7 @@ const validationSchema = {
   type: "object",
   properties: {
     offset: {
-      description: "paramtro para paginacion",
+      description: "parametro para paginacion",
       type: "number",
     },
     nameStartsWith: {
