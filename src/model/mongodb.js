@@ -1,10 +1,9 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable new-cap */
-const { schema, model, Schema } = require("mongoose");
+const { Schema, model } = require("mongoose");
 
 const teamSchema = Schema({
   id: {
-    type: Number,
+    type: String,
     require: true,
     unique: true,
   },

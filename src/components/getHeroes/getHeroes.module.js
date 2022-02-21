@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 "use strict";
 
 const TechnicalError = require("../../model/TechnicalError");
@@ -23,7 +24,7 @@ async function getHeroesModule(req) {
       serviceResponse.data.results = serviceResponse.data.results.map(
         (hero) => {
           const heroFound = mongoBDheroesList.find(
-            (knownHero) => knownHero.id === hero.id
+            (knownHero) => knownHero.id == hero.id
           );
           if (heroFound) {
             hero.team = heroFound.team;

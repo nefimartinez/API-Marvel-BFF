@@ -3,7 +3,7 @@ const validationSchema = {
   properties: {
     id: {
       description: "id del heroe",
-      type: "number",
+      type: "string",
     },
     team: {
       description: "team del heroe",
